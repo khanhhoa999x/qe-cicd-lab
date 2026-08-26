@@ -29,7 +29,10 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Run smoke tests
+      - name: Run API smoke tests
+        run: npm run test:api:smoke
+
+      - name: Run E2e smoke tests
         run: npm run test:smoke
 
       - name: Upload Playwright report

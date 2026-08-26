@@ -34,18 +34,28 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    /* API tests: no browser, one run. Matched by file name (*.api.spec.ts). */
+    {
+      name: 'api',
+      testMatch: /.*\.api\.spec\.ts/,
+      use: { baseURL: 'https://dummyjson.com' },
+    },
+
     {
       name: 'chromium',
+      testIgnore: /.*\.api\.spec\.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
       name: 'firefox',
+      testIgnore: /.*\.api\.spec\.ts/,
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
+      testIgnore: /.*\.api\.spec\.ts/,
       use: { ...devices['Desktop Safari'] },
     },
 
